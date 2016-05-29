@@ -16,4 +16,16 @@ function SudokuValidator(sudoku){
 
 SudokuValidator.prototype.validate = function(num){
   // Do work here
+  if (Number.isInteger(Math.sqrt(num))) {
+    for (var i = 0; i < num; i++) {
+      for (var j = 0; j < num; j++) {
+        if (this.sudoku[i].indexOf(this.sudoku[i][j]) !== j) {
+          return false;
+        } else if (this.sudoku[i][j] > num) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
